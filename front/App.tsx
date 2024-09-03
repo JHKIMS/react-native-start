@@ -5,8 +5,11 @@
  * @format
  */
 
+import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Button, SafeAreaView, StyleSheet,Text,TextInput,View } from 'react-native';
+import AuthHomeScreen from './src/screens/AuthHomeScreen';
+import AuthStackNavigator from './src/screens/navigation/AuthStackNavigator';
 
 function App(): React.JSX.Element {
   const [name, setName] = useState('');
@@ -16,13 +19,9 @@ function App(): React.JSX.Element {
   }
   return (
     // <SafeAreaView></SafeAreaView>는 노치 영역을 침범하지 않는 스타일을 위한 것임.
-    <SafeAreaView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input} onChangeText={handleChangeInput} value={name}/>
-        <Text>이름</Text>
-      </View>
-      
-    </SafeAreaView>
+    <NavigationContainer>
+      <AuthStackNavigator />
+    </NavigationContainer>
   )
 }
 
